@@ -2,22 +2,23 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WebAR Demo</title>
   <style> body { margin:0; overflow:hidden; } </style>
 
-  <!-- ① Three.js UMD (v0.178.0) -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.min.js"></script> :contentReference[oaicite:0]{index=0}
-
-<!-- ② GLTFLoader UMD (v0.178.0) -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.178.0/examples/js/loaders/GLTFLoader.js"></script> :contentReference[oaicite:1]{index=1}
-
-<!-- ③ MindAR UMD (v1.2.5) -->
-<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.umd.js"></script> :contentReference[oaicite:2]{index=2}
-
+  <!-- ① importmap: 모듈 경로 매핑 -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three":     "https://unpkg.com/three@0.178.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.178.0/examples/jsm/",
+      "mindar-image-three": "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"
+    }
+  }
+  </script>
 </head>
 <body>
-  <!-- ④ main.js 로드 -->
-  <script src="main.js"></script>
+  <!-- ② 모듈 스크립트 로드 -->
+  <script type="module" src="main.js"></script>
 </body>
 </html>
